@@ -1,0 +1,41 @@
+#include<iostream>
+#include<vector>
+
+using namespace std;
+
+int main() {
+    int ca;
+    cin>>ca;
+    vector<int> vec;
+    int temp;
+    int cnt;
+    for(int j =0;j<ca;j++) {
+        vec.clear();
+        cin>>cnt;
+        while(cnt-->0) {
+            cin>>temp;
+            vec.push_back(temp);
+        }
+        int maxsum=0,sum = 0,endposition = 0;
+
+        int tempPosition = 0;
+        for(int i=0;i<vec.size();i++) {
+            sum += vec[i];
+            if(sum > maxsum) {
+                maxsum = sum;
+                endposition = i;
+            }
+            if(sum<0) {
+                tempPosition =i+1;
+            }
+        }
+        cout<<"Case "<<ca<<":"<<endl;
+        cout<<maxsum<<" "<<tempPosition+1<<" "<<endposition+1;
+        if(j<ca-1) cout<<endl;
+
+    }
+
+
+    return 0;
+
+}
